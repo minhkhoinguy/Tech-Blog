@@ -5,13 +5,9 @@ const session = require("express-session");
 const sequelize = require("./config/connection");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
-// Sets up the Express App
-// =============================================================
 const app = express();
 const PORT = process.env.PORT || 3000;
-// Requiring our models for syncing
 const { User, Blog } = require("./models");
-// Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 const sess = {
@@ -26,7 +22,6 @@ const sess = {
   })
 };
 app.use(session(sess));
-// Static directory
 app.use(express.static('public'));
 
 const hbs = exphbs.create({});
@@ -37,6 +32,7 @@ app.use("/", allRoutes);
 
 sequelize.sync({ force: false }).then(function() {
   app.listen(PORT, function() {
-    console.log("https://localhost:" + PORT);
+    // console.log("https://localhost:" + PORT);
+    console.log("App listening on PORT " + PORT);
   });
 });
