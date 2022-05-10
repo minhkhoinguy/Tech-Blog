@@ -3,7 +3,6 @@ const router = express.Router();
 const {User,Blog} = require("../models/");
 const bcrypt  = require("bcrypt");
 
-//find all
 router.get("/", (req, res) => {
   User.findAll({
     include:[Blog]
@@ -20,7 +19,7 @@ router.get("/logout",(req,res)=>{
   req.session.destroy();
   res.redirect("/")
 })
-//find one
+
 router.get("/:id", (req, res) => {
   User.findByPk(req.params.id,{})
     .then(dbUser => {
@@ -32,7 +31,6 @@ router.get("/:id", (req, res) => {
     });
 });
 
-//create user
 router.post("/", (req, res) => {
   User.create(req.body)
     .then(newUser => {
@@ -71,7 +69,6 @@ router.post("/login", (req, res) => {
     });
 });
 
-//update user
 router.put("/:id", (req, res) => {
   User.update(req.body, {
     where: {
@@ -86,7 +83,6 @@ router.put("/:id", (req, res) => {
   });
 });
 
-//delete a user
 router.delete("/:id", (req, res) => {
   User.destroy({
     where: {
