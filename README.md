@@ -117,7 +117,7 @@ None
 <img src="./">
 
 ## Link
-[Github: Tech-Blog](https://github.com/brianbixby/project-2)
+[Github: Tech-Blog](https://github.com/minhkhoinguy/Tech-Blog)
 
 [Heroku: Tech-Blog](https://git.heroku.com/mkn-tech-blog.git
 )
