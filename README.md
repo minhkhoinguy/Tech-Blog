@@ -119,7 +119,8 @@ None
 ## Link
 [Github: Tech-Blog](https://github.com/brianbixby/project-2)
 
-[Heroku: Tech-Blog](https://)
+[Heroku: Tech-Blog](https://git.heroku.com/mkn-tech-blog.git
+)
 
 ## Contact
 Contact me with the link below if you have any questions!
