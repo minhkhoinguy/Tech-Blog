@@ -119,8 +119,7 @@ None
 ## Link
 [Github: Tech-Blog](https://github.com/minhkhoinguy/Tech-Blog)
 
-[Heroku: Tech-Blog](https://git.heroku.com/mkn-tech-blog.git
-)
+[Heroku: Tech-Blog](https://git.heroku.com/mkn-tech-blog.git)
 
 ## Contact
 Contact me with the link below if you have any questions!

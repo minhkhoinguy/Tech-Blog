@@ -1,4 +1,4 @@
-myconsole.log("hello")
+console.log("hello")
 document.querySelector("#newBlog").addEventListener("submit",e=>{
     e.preventDefault()
     const blogObj = {
@@ -19,3 +19,43 @@ document.querySelector("#newBlog").addEventListener("submit",e=>{
         }
     })
 })
+// var arr = [1, 2, 3, 4, 5, 6]
+
+// arr.filter((element) => {
+//     element % 2 == 0
+// })
+//  console.log(arr.forEach((element, i) => {
+//    console.log(element)
+// }))
+// console.log(document.querySelectorAll(".bingbong"))
+
+
+document.querySelectorAll(".displayBlog").forEach((element, i) => {
+    console.log(element)
+    console.log(element.getAttribute("data-blog"))
+    // this is id
+    element.addEventListener("submit", e=> {
+        console.log("hello world")
+        e.preventDefault()
+        const deleteObj = {
+    
+        }
+        fetch("/api/blogs",{
+            method:"DELETE",
+            body:JSON.stringify(deleteObj),
+            headers:{
+                "Content-Type":"application/json"
+            }
+        }).then(res=>{
+            if(res.ok){
+               location.reload()
+            } else {
+                alert("trumpet sound")
+            }
+        })
+    })
+})
+
+
+
+// Create Read Update Delete

@@ -6,10 +6,15 @@
     <button>Submit</button>
 </form>
 {{#each Blogs}}
-    <h3>{{title}}</h3>
-    <p>{{body}}</p>
-    <button>delete</button>
-    <hr>
+    <form action="" class="displayBlog" data-blog={{id}}>
+        <h3>{{title}}</h3>
+        <p>{{body}}</p>
+        <h5>Creat at: {{createdAt}}</h5>
+        <h5>Updated at: {{updatedAt}}</h5>
+        <button>delete</button>
+        <hr>
+    </form>
+    
 {{/each}}
 
 <script src="/js/profile.js"></script>
