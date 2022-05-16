@@ -25,6 +25,7 @@ router.get("/:id", (req, res) => {
 });
 
 router.post("/", (req, res) => {
+  console.log("FRENCH FRIES AND MASHED POTATOES!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
   if(!req.session.user){
     return res.status(401).json({msg:"Please login to create a new blog."})
 }
