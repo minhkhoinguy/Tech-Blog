@@ -56,18 +56,36 @@ router.put("/:id", (req, res) => {
   });
 });
 
-router.delete("/:id", (req, res) => {
+// router.delete("/:id", (req, res) => {
+//   Blog.destroy({
+//     where: {
+//       id: req.params.id
+//     }
+//   }).then(delBlog => {
+//     res.json(delBlog);
+//   })
+//   .catch(err => {
+//     console.log(err);
+//     res.status(500).json({ msg: "an error occured", err });
+//   });
+// });
+
+router.delete("/", (req, res) => {
+  if(!req.session.user){
+    return res.status(401).json({msg:"Please login to delete a blog."})
+}
   Blog.destroy({
-    where: {
-      id: req.params.id
-    }
-  }).then(delBlog => {
-    res.json(delBlog);
+    title:req.body.title,
+    body:req.body.body,
+    UserId:req.session.user.id
   })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json({ msg: "an error occured", err });
-  });
+    .then(newBlog => {
+      res.json(newBlog);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ msg: "an error occured", err });
+    });
 });
 
 module.exports = router;

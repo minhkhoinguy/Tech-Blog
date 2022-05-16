@@ -1,6 +1,17 @@
 <h1>Home page</h1>
-{{#each blogs}}
-    <h3>{{title}}</h3>
-    <p>{{body}}</p>
-    <hr>
-{{/each}}
+<div class="navBtn">
+    <a href='/profile'><button id="profileBtn" class="btn">Profile</button></a>
+    <button id="logoutBtn" class="btn">Log Out</button>
+</div>
+<ul id="homeBlog">
+    {{#each Blogs as |blogs|}}
+        <h3 class="">{{blogs.title}}</h3>
+        <p class="">{{blogs.body}}</p>
+        <img src="{{image_url}}" alt="">
+        <div class="comment">
+            <textarea id="commentCard" cols="30" rows="10"></textarea>
+            <button>Submit</button>
+        </div>
+    {{/each}}
+</ul>
+<script src="/public/js/home.js"></script>

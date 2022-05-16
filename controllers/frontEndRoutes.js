@@ -35,5 +35,19 @@ router.get("/profile",(req,res)=>{
         res.render("profile",hbsData)
     })
 })
-
+router.get("/home",(req,res)=>{
+    if(!req.session.user){
+        return res.redirect("/login")
+    }
+    User.findByPk(req.session.user.id,{
+        include:[Blog]
+    }).then(userData=>{
+        console.log(userData);
+        const hbsData = userData.get({plain:true})
+        console.log("=======")
+        console.log(hbsData);
+        hbsData.loggedIn = req.session.user?true:false
+        res.render("home",hbsData)
+    })
+})
 module.exports = router;

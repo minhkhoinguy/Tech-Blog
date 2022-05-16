@@ -1,5 +1,9 @@
 <h1>Welcome back {{username}}</h1>
 <h2>All your blogs:</h2>
+<div class="navBtn">
+    <a href='/home'><button id="homeBtn" class="btn">Home</button></a>
+    <button id="logoutBtn" class="btn">Log Out</button>
+</div>
 <form action="" id="newBlog">
     <input type="text" id="title" placeholder="title">
     <textarea id="body" cols="30" rows="10"></textarea>
@@ -9,12 +13,14 @@
     <form action="" class="displayBlog" data-blog={{id}}>
         <h3>{{title}}</h3>
         <p>{{body}}</p>
+        <img src="{{image_url}}" alt="">
         <h5>Creat at: {{createdAt}}</h5>
         <h5>Updated at: {{updatedAt}}</h5>
+        <button>update</button>
         <button>delete</button>
         <hr>
     </form>
     
 {{/each}}
 
-<script src="/js/profile.js"></script>
+<script src="/public/js/profile.js"></script>
