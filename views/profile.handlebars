@@ -10,17 +10,20 @@
     <button>Submit</button>
 </form>
 {{#each Blogs}}
-    <form action="" class="displayBlog" data-blog={{id}}>
-        <h3>{{title}}</h3>
-        <p>{{body}}</p>
-        <img src="{{image_url}}" alt="">
-        <h5>Creat at: {{createdAt}}</h5>
-        <h5>Updated at: {{updatedAt}}</h5>
-        <button>update</button>
-        <button>delete</button>
-        <hr>
-    </form>
-    
+<form action="" class="displayBlog" data-blog={{id}}>
+    <h3>{{title}}</h3>
+    <p>{{body}}</p>
+    <img src="{{image_url}}" alt="">
+    <h5>Creat at: {{createdAt}}</h5>
+    <h5>Updated at: {{updatedAt}}</h5>
+    <input type="text" class="updateTitle" placeholder="Update post title">
+    <input type="text" class="updateBody" placeholder="Update post body">
+
+    <button class="updatebtn" data-blog={{id}}>update</button>
+    <button class="delbtn" data-blog={{id}}>delete</button>
+    <hr>
+</form>
+
 {{/each}}
 
 <script src="/js/profile.js"></script>

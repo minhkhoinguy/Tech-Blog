@@ -25,7 +25,7 @@ router.get("/:id", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  console.log("FRENCH FRIES AND MASHED POTATOES!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+  console.log("welcome")
   if(!req.session.user){
     return res.status(401).json({msg:"Please login to create a new blog."})
 }
@@ -57,28 +57,15 @@ router.put("/:id", (req, res) => {
   });
 });
 
-// router.delete("/:id", (req, res) => {
-//   Blog.destroy({
-//     where: {
-//       id: req.params.id
-//     }
-//   }).then(delBlog => {
-//     res.json(delBlog);
-//   })
-//   .catch(err => {
-//     console.log(err);
-//     res.status(500).json({ msg: "an error occured", err });
-//   });
-// });
-
-router.delete("/", (req, res) => {
+router.delete('/:id', (req, res) => {
+  console.log(req.params.id)
   if(!req.session.user){
     return res.status(401).json({msg:"Please login to delete a blog."})
 }
   Blog.destroy({
-    title:req.body.title,
-    body:req.body.body,
-    UserId:req.session.user.id
+    where: {
+      id:req.params.id
+    }
   })
     .then(newBlog => {
       res.json(newBlog);
